@@ -1,0 +1,49 @@
+class Calculator
+	def getaction
+		puts "Would you like to + or -"
+		action = gets.chomp.downcase
+		return action
+	end
+
+  	def get_num
+  		z = gets.chomp
+    	while z.is_i? == false
+      		puts "Invlad, please input a number"
+      		z = gets.chomp
+    	end
+  		return z
+  	end
+	
+	def add(a, b)
+		a + b
+	end
+
+	def subtract(a, b)
+		a - b
+	end
+end
+
+calculate = Calculator.new
+response = calculate.getaction
+case response
+	when "+"
+		puts "Please enter first number."
+		x = calculate.get_num	
+
+		puts "Please enter second number."
+		y = calculate.get_num
+
+		puts "RESULT: #{x} + #{y} = #{calculate.add(x, y)}"
+
+	when "-" 
+		puts "Please enter first number."
+		x = calculate.get_num	
+
+		puts "Please enter second number."
+		y = calculate.get_num
+
+		puts "RESULT: #{x} - #{y} = #{calculate.subtract(x, y)}"
+
+	else		
+		puts "I'm sorry, the entered input is invalid."
+end
